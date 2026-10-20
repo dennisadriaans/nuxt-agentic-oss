@@ -1,0 +1,14 @@
+node_modules
+dist
+.nuxt
+.output
+.data
+.wrangler
+.fixtures
+coverage
+*.tgz
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+.dev.vars

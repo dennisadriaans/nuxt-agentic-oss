@@ -1,0 +1,17 @@
+packages:
+  - 'packages/*'
+  - 'examples/*'
+
+allowBuilds:
+  better-sqlite3: true
+  esbuild: true
+  sharp: true
+  unrs-resolver: false
+  vue-demi: true
+  workerd: true
+minimumReleaseAgeExclude:
+  - '@cloudflare/workers-types@5.20261015.1'
+overrides:
+  '@types/node': '22.20.4'
+  '@better-auth/core': '1.7.10'
+  better-auth: '1.7.10'

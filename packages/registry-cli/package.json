@@ -1,0 +1,52 @@
+{
+  "name": "@nuxtagentic/cli",
+  "version": "0.0.1-rc.2",
+  "type": "module",
+  "description": "Public registry login, license status and logout for Nuxt Agentic Pro.",
+  "license": "MIT",
+  "homepage": "https://nuxtagentic.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuxtagentic/nuxt-agentic.git",
+    "directory": "packages/registry-cli"
+  },
+  "bugs": "https://github.com/nuxtagentic/nuxt-agentic/issues",
+  "sideEffects": false,
+  "engines": {
+    "node": "^22.22.3 || >=24.15.0"
+  },
+  "bin": {
+    "agentic": "./dist/cli.mjs"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./files": {
+      "types": "./dist/files.d.mts",
+      "import": "./dist/files.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --project tsconfig.json",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "prepack": "pnpm build",
+    "prepare": "pnpm build",
+    "lint:package": "publint --strict",
+    "lint:types": "attw --pack . --profile esm-only"
+  },
+  "dependencies": {
+    "zod": "4.6.5"
+  }
+}

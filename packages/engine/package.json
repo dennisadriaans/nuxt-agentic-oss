@@ -1,0 +1,124 @@
+{
+  "name": "@nuxtagentic/engine",
+  "version": "0.0.1-rc.2",
+  "type": "module",
+  "description": "Framework-independent agent definitions, provider execution and resumable runs.",
+  "license": "MIT",
+  "homepage": "https://nuxtagentic.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuxtagentic/nuxt-agentic.git",
+    "directory": "packages/engine"
+  },
+  "bugs": "https://github.com/nuxtagentic/nuxt-agentic/issues",
+  "sideEffects": false,
+  "engines": {
+    "node": "^22.22.3 || >=24.15.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "NOTICE.md",
+    "README.md"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./definition": {
+      "import": {
+        "types": "./dist/definition.d.mts",
+        "default": "./dist/definition.mjs"
+      },
+      "require": {
+        "types": "./dist/definition.d.cts",
+        "default": "./dist/definition.cjs"
+      }
+    },
+    "./markdown": {
+      "import": {
+        "types": "./dist/markdown.d.mts",
+        "default": "./dist/markdown.mjs"
+      },
+      "require": {
+        "types": "./dist/markdown.d.cts",
+        "default": "./dist/markdown.cjs"
+      }
+    },
+    "./tools": {
+      "import": {
+        "types": "./dist/tools.d.mts",
+        "default": "./dist/tools.mjs"
+      },
+      "require": {
+        "types": "./dist/tools.d.cts",
+        "default": "./dist/tools.cjs"
+      }
+    },
+    "./providers": {
+      "import": {
+        "types": "./dist/providers.d.mts",
+        "default": "./dist/providers.mjs"
+      },
+      "require": {
+        "types": "./dist/providers.d.cts",
+        "default": "./dist/providers.cjs"
+      }
+    },
+    "./runtime": {
+      "import": {
+        "types": "./dist/runtime.d.mts",
+        "default": "./dist/runtime.mjs"
+      },
+      "require": {
+        "types": "./dist/runtime.d.cts",
+        "default": "./dist/runtime.cjs"
+      }
+    },
+    "./runs": {
+      "import": {
+        "types": "./dist/runs.d.mts",
+        "default": "./dist/runs.mjs"
+      },
+      "require": {
+        "types": "./dist/runs.d.cts",
+        "default": "./dist/runs.cjs"
+      }
+    },
+    "./scheduling": {
+      "import": {
+        "types": "./dist/scheduling.d.mts",
+        "default": "./dist/scheduling.mjs"
+      },
+      "require": {
+        "types": "./dist/scheduling.d.cts",
+        "default": "./dist/scheduling.cjs"
+      }
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --project tsconfig.json",
+    "test": "node --import tsx --test tests/*.test.ts tests/*.test.mjs",
+    "prepack": "pnpm build",
+    "prepare": "pnpm build",
+    "lint:package": "publint --strict",
+    "lint:types": "attw --pack . --profile node16",
+    "test:coverage": "node --experimental-test-coverage --test-coverage-include='src/**/*.ts' --test-coverage-lines=90 --test-coverage-branches=80 --import tsx --test tests/*.test.ts tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@cfworker/json-schema": "4.1.1",
+    "cron-parser": "5.10.2"
+  }
+}

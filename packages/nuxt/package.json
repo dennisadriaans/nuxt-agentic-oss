@@ -1,0 +1,81 @@
+{
+  "name": "@nuxtagentic/nuxt",
+  "version": "0.0.1-rc.2",
+  "type": "module",
+  "description": "Markdown agents and typed tools for Nuxt: streaming runs, useAgent() and a DevTools tab.",
+  "license": "MIT",
+  "homepage": "https://nuxtagentic.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuxtagentic/nuxt-agentic.git",
+    "directory": "packages/nuxt"
+  },
+  "bugs": "https://github.com/nuxtagentic/nuxt-agentic/issues",
+  "sideEffects": false,
+  "engines": {
+    "node": "^22.22.3 || >=24.15.0"
+  },
+  "keywords": [
+    "nuxt",
+    "nuxt-module",
+    "agents",
+    "ai",
+    "llm",
+    "tools"
+  ],
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "docs"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/module.d.ts",
+      "import": "./dist/module.js"
+    },
+    "./tool": {
+      "types": "./dist/tool.d.ts",
+      "import": "./dist/tool.js"
+    },
+    "./host": {
+      "types": "./dist/host.d.ts",
+      "import": "./dist/host.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "typecheck": "tsc --project tsconfig.json",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "build": "tsdown",
+    "prepack": "pnpm build",
+    "prepare": "pnpm build",
+    "lint:package": "publint --strict",
+    "lint:types": "attw --pack . --profile esm-only"
+  },
+  "dependencies": {
+    "@nuxt/devtools-kit": "3.4.2",
+    "@nuxt/kit": "4.6.1",
+    "@nuxt/schema": "4.6.1",
+    "@nuxtagentic/engine": "workspace:*",
+    "h3": "1.15.11",
+    "zod": "4.6.5"
+  },
+  "peerDependencies": {
+    "nuxt": "^4.6.1",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "nitropack": "2.13.4",
+    "nuxt": "4.6.1",
+    "vue": "3.5.43",
+    "wrangler": "4.151.0"
+  }
+}
