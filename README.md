@@ -31,3 +31,4 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 [MIT](./LICENSE)
 # nuxt-agentic-oss
+# nuxt-agentic-oss
